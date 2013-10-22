@@ -28,10 +28,10 @@ Date: Tue, 22 Oct 2013 20:44:24 GMT
 }
 ```
 
-The most important field in the returned JSON is the `id` field. This is your workspace identifier, and it’s used throughout the depgrapher REST services.
+The most important field in the returned JSON is the `id` field. This is your workspace identifier, and itâ€™s used throughout the depgrapher REST services.
 
 <span style="sidenote">
-###Deleting a workspace
+##Deleting a workspace
 
 As you explore different configurations for your dependency graphs, occasionally you will want to delete old, obsolete dependency graphs. This is an easy operation; simply issue the following DELETE request (using your own workspace-id for the last part of the path):
 
@@ -43,3 +43,4 @@ Server: Apache-Coyote/1.1
 Content-Length: 0
 Date: Tue, 22 Oct 2013 20:49:49 GMT
 ```
+</span>
