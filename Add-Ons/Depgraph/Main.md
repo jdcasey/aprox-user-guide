@@ -5,6 +5,17 @@ TITLE: Main
 
 The depgraph add-on is an integration point for the [Cartographer API][1], which is a system to capture, traverse, and analyze relationships between projects. Currently, it only supports Maven-style artifacts.
 
+## Contents
+
+* Overview
+    * [Basic Features](#basic-features)
+    * [Rendering Features](#rendering-features)
+    * [Interface Patterns](#interface-patterns)
+* [Workspaces](Workspaces)
+* [Discovering Graphs](Discovering-Graphs)
+* [Rendering](Rendering/Main)
+
+<a id="basic-features"></a>
 ## Basic Features
 
 - Dependency graph discovery
@@ -13,6 +24,7 @@ The depgraph add-on is an integration point for the [Cartographer API][1], which
 - Workspaces to separate graphing activities and improve performance
 - Metadata-scanning API that currently scans for SCM locations and license information per POM
 
+<a id="rendering-features"></a>
 ## Rendering Features
 
 - mapping of files to repository base-URL by GAV
@@ -24,6 +36,7 @@ The depgraph add-on is an integration point for the [Cartographer API][1], which
 - JSON dump of graph relationships
 - collation of GAVs by metadata values
 
+<a id="interface-patterns"></a>
 ## Interface Patterns
 
 Most depgraph services are provided via REST-ish endpoint that works in one of two ways:
