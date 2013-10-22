@@ -29,6 +29,6 @@ The depgraph add-on is an integration point for the [Cartographer API][1], which
 Most depgraph services are provided via REST-ish endpoint that works in one of two ways:
 
 - GET request with path and query parameters (path params are requirements, query params are optional)
-- POST request that passes JSON configuration to the service
+- POST request with JSON configuration body that conveys complex service options
 
   [1]: https://github.com/jdcasey/cartographer
