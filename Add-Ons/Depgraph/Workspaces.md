@@ -28,7 +28,7 @@ Date: Tue, 22 Oct 2013 20:44:24 GMT
 }
 ```
 
-The most important field in the returned JSON is the `id` field. This is your workspace identifier, and itâ€™s used throughout the depgrapher REST services.
+The most important field in the returned JSON is the `id` field. This is your workspace identifier, and it's used throughout the depgrapher REST services.
 
 <span style="sidenote">
 ##Deleting a workspace
@@ -42,5 +42,4 @@ HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
 Content-Length: 0
 Date: Tue, 22 Oct 2013 20:49:49 GMT
-
 ```
