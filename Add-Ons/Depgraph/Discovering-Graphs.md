@@ -16,6 +16,7 @@ This is another paragraph for testing styles.
 Graph discovery can happen in two ways:
 
 - [Directed discovery](#directed), using the dedicated `depgraph/resolve/*` REST resources
+    
 - [Inline discovery](#inline), as part of a larger process, by enabling the `resolve` field in a variety of JSON configurations POSTed to different depgrapher REST resources
 
 For more information about these different discovery methods, see their respective sections below.
