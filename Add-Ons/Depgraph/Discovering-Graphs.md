@@ -30,7 +30,7 @@ Fortunately, most of these cases fall into a couple of neat patterns. To correct
 - Assembly modules with `provided`-scope dependencies
 - Use of the `dependency:copy`, or `dependency:unpack` goals, in the Maven Dependency Plugin
 
-### Assembly Modules with Provided-Scope Dependencies
+## Assembly Modules with Provided-Scope Dependencies
 
 If you consider the way many large projects are built with Apache Maven, it's common to see small modules assembled into subsystems, which are then assembled into the distribution -- the binary that the community expects its users to download, install, and use. One of the most common approaches to this "rolling up" of project components into larger assemblies is the Maven Assembly Plugin. The assembly plugin is a tool for creating archives with flexible layouts according to one or more recipes (technically termed 'assembly descriptors'). The assembled archive is then typically attached to the Maven project instance and deployed alongside other project files, such as the POM and possibly other jars, etc.
 
@@ -58,11 +58,13 @@ In the case of these assembly-oriented modules, the provided scope is used to si
 
 To make sure these project GAVs are included in the depgraph and available for building the current project (for example), the `dist-pom` patch modifies the assembly-oriented project's dependencies to **REMOVE** the provided scope. 
 
-### Use of `dependency:copy` and `dependency:unpack`
+## Use of `dependency:copy` and `dependency:unpack`
 
 The other common pattern--again, mainly related to assembly of project distributions--is use of the Maven Dependency Plugin. This plugin provides several goals that allow you to directly specify artifacts to resolve and copy or unpack, **without ever declaring them as dependencies**.
 
 While there may be good reasons to leave such artifacts out of the project's dependency declarations, the depgraph is often incomplete without including them. They are necessary to construct a build environment in which the current project can be built, for example.
+
+To make sure GAVs resolved on-the-fly by the dependency plugin are included in the dependency graph, the `dependency-plugin` patch looks for GAVs declared in the `configuration` section of the dependency plugin, and adds corresponding compile-scoped dependency relationships to the graph.
 
 <a id="scanning" name="scanning" ></a>
 ## Metadata Scanning
