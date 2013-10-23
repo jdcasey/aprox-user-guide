@@ -126,7 +126,8 @@ Server: Apache-Coyote/1.1
 Content-Type: application/json
 Content-Length: 169
 Date: Tue, 22 Oct 2013 21:32:58 GMT
-
+```
+```javascript
 {
   "config": {
     "forceVersions": true
