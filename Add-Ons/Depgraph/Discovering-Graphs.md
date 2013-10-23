@@ -116,7 +116,7 @@ Let's take a look at the individual parts:
 - `preset=sob-build`: This specifies the preset filter to use in order to determine which parts of the dependency graph to recurse during discovery. For more information on filtering and available presets, see the [Filtering](Filtering) section.
 
 <a id="inline" name="inline" ></a>
-## Discovery during Other Operations
+## Discovery during Other Operations (Inline Discovery)
 
 Many of the more sophisticated operations available in the depgraph add-on require you to POST a JSON configuration to specify exactly how these complex operations should execute. When this is the case, the `resolve` field should always be available. When set to `true`, graph discovery will take place before the operation can continue.
 
