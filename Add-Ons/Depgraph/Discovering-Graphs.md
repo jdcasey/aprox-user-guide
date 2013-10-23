@@ -28,7 +28,7 @@ Directed discovery is currently pretty simplistic, allowing you to resolve the g
 http://localhost:8080/aprox/api/1.0/depgraph/resolve/group:public/org.foo/bar/1.2.3?wsid=1382477279014&preset=sob-build
 ```
 
-<div class="sidebar" id="sidebar2"/>
+<div class="start-sidebar" id="sidebar2"/>
 ###Note
 
 Currently, the `wsid=xxxxxxxxx` query parameter is a common method of passing in the workspace used to store/query for graph information. **In most cases, the workspace is a required parameter.** 
