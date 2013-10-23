@@ -41,8 +41,11 @@ This violates the principle of *required parameters in the path, optional parame
 Let's take a look at the individual parts:
 
 - `http://localhost:9080/aprox/api/1.0/depgraph/resolve`: By now, this should look pretty familiar. This is the base URL for the resolver REST endpoint
+
 - `group:public`: This specifies that the graph should be resolved using the Aprox group `public` as the source from which POMs will be downloaded and parsed.
+
 - `org.foo/bar/1.2.3`: This is the topmost GAV for the graph to be resolved. All dependencies, plugins, extensions, parents, etc. references to other projects recursing out from this GAV will be collected, subject to acceptance by the preset filter.
+
 - `wsid=1382477279014`: This specifies the workspace within which to store the resolved graph. 
 
 
