@@ -16,4 +16,8 @@ All REST URLs in Aprox are prefixed with the path: `api/1.0/`. Accordingly, if y
 
 This is another paragraph for testing styles.
 
+###Directed Discovery
+
+Directed discovery happens when you use the `depgraph/resolve` endpoint, as opposed to doing discovery as part of a larger operation you're trying to execute.
+
 
