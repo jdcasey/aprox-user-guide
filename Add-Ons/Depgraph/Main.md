@@ -23,7 +23,7 @@ The depgraph add-on is an integration point for the [Cartographer API][1], which
     * [Inline Discovery](Discovering-Graphs#inline)
 * [Filtering](Filtering)
 * [Rendering](Rendering/Main)
-* [Graph Calculations](Graph-Calculations)
+* [Graph Calculations and Composition](Graph-Composition)
 * [Metadata Operations](Metadata)
 
 <a id="basic-features"></a>
