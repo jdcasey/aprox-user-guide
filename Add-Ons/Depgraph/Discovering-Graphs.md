@@ -15,14 +15,12 @@ This is another paragraph for testing styles.
 
 Graph discovery can happen in two ways:
 
-- Using the dedicated `depgraph/resolve/*` REST resources
-- Enabling the `resolve` field in a variety of JSON configurations POSTed to different depgrapher REST resources
+- Directed discovery, using the dedicated `depgraph/resolve/*` REST resources
+- Discovery as part of a larger process, by enabling the `resolve` field in a variety of JSON configurations POSTed to different depgrapher REST resources
 
-###Directed Discovery
+##Directed Discovery
 
-Directed discovery happens when you use the `depgraph/resolve` endpoint, as opposed to doing discovery as part of a larger operation you're trying to execute.
-
-Directed discovery is currently pretty simplistic, allowing you to resolve the graph for a single GAV using an optional preset filter and a single source location (which can be an Aprox group reference). The basic call looks like this:
+Directed discovery happens when you use the `depgraph/resolve` endpoint, as opposed to doing discovery as part of a larger operation you're trying to execute. Currently, this is a pretty simplistic operation, only allowing you to resolve the graph for a single GAV using an optional preset filter and a single source location (which can be an Aprox group reference). The basic call looks like this:
 
 ```
 http://localhost:8080/aprox/api/1.0/depgraph/resolve/group:public/org.foo/bar/1.2.3?wsid=1382477279014&preset=sob-build
@@ -52,5 +50,14 @@ Let's take a look at the individual parts:
 
 - `preset=sob-build`: This specifies the preset filter to use in order to determine which parts of the dependency graph to recurse during discovery. For more information on filtering and available presets, see the [Filtering](Filtering) section.
 
+## Discovery during Other Operations
 
+Many of the more sophisticated operations available in the depgraph add-on require you to POST a JSON configuration to specify exactly how these complex operations should execute. When this is the case, the `resolve` field should always be available. When set to `true`, graph discovery will take place before the operation can continue.
+
+If you enable graph resolution during one of these operations, and some graph relationships already exist, the discovery manager will attempt to resume graph discovery with any unresolved relationship-target projects **that fit the specified filter**. Once a discovery iteration completes without adding any new relationships, discovery ends and the rest of the operation continues.
+
+Operations that currently support this type of inlined discovery include:
+
+- `[depgraph/meta/collate](Metadata#collate)`
+- `[depgraph/repo/*](Repository)`
 
