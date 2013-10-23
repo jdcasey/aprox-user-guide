@@ -125,5 +125,5 @@ If you enable graph resolution during one of these operations, and some graph re
 Operations that currently support this type of inlined discovery include:
 
 - `depgraph/meta/collate` ([Metadata.collate](Metadata#collate))
-- `depgraph/repo/*` ([Repository.*](Repository))
+- `depgraph/repo/*` ([Repository.*](Rendering/Repository))
 
