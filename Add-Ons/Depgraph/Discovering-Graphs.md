@@ -20,7 +20,54 @@ Graph discovery can happen in two ways:
 
 For more information about these different discovery methods, see their respective sections below.
 
-<a id="directed" name="directed" />
+<a id="patching" name="patching" ></a>
+## Graph Patching
+
+Owing to some quirks in the way Maven projects are sometimes built, the standard dependencies declared in the POM do not always reflect the total set of GAVs the project relies upon. This means the depgraph discovery operation can easily miss critical, unorthodox relationships between projects.
+
+Fortunately, most of these cases fall into a couple of neat patterns. To correct for these patterns, the depgrapher uses a set of patching components to revise the set of discovered relationships after parsing but before storage. Below are a couple of the more common patterns that the depgrapher knows how to patch:
+
+- Assembly modules with `provided`-scope dependencies
+- Use of the `dependency:copy`, or `dependency:unpack` goals, in the Maven Dependency Plugin
+
+### Assembly Modules with Provided-Scope Dependencies
+
+If you consider the way many large projects are built with Apache Maven, it's common to see small modules assembled into subsystems, which are then assembled into the distribution -- the binary that the community expects its users to download, install, and use. One of the most common approaches to this "rolling up" of project components into larger assemblies is the Maven Assembly Plugin. The assembly plugin is a tool for creating archives with flexible layouts according to one or more recipes (technically termed 'assembly descriptors'). The assembled archive is then typically attached to the Maven project instance and deployed alongside other project files, such as the POM and possibly other jars, etc.
+
+It's fairly common to see communities create Maven modules whose sole responsibility is to generate these assembly archives. When that happens, there is no other output besides the assembly, so the POM is typically declared with:
+
+```xml
+<packaging>pom</packaging>
+```
+
+Additionally, since all of the dependencies declared in the module are designed to be aggregated into the assembly output archive, it's typically seen as the most technically correct thing to declare them all with `provided` scope.
+
+The problem here is that many graph filters that are trying to judge the list of things that need to be built or included actually need to account for these provided-scope dependencies differently than the typical provided-scope dependency declaration. 
+
+Provided scope is used to account for two use cases in Maven:
+
+- The dependency is meant to be present in the runtime into which the binary will be deployed.
+
+    Examples include javamail, cdi-api, etc.
+
+- The dependency is being **embedded** into the binary that this build produces.
+
+    In this case, the provided-scope dependency should not be included in Maven's transitive dependency set used to compile things that depend on this project...this is mainly a trick to hide the dependency from double-inclusion in Maven classpaths (one via the dependency declaration, the other embedded in the current project's jar).
+
+In the case of these assembly-oriented modules, the provided scope is used to signify the **embedded** use case.
+
+To make sure these project GAVs are included in the depgraph and available for building the current project (for example), the `dist-pom` patch modifies the assembly-oriented project's dependencies to **REMOVE** the provided scope. 
+
+### Use of `dependency:copy` and `dependency:unpack`
+
+The other common pattern--again, mainly related to assembly of project distributions--is use of the Maven Dependency Plugin. This plugin provides several goals that allow you to directly specify artifacts to resolve and copy or unpack, **without ever declaring them as dependencies**.
+
+While there may be good reasons to leave such artifacts out of the project's dependency declarations, the depgraph is often incomplete without including them. They are necessary to construct a build environment in which the current project can be built, for example.
+
+<a id="scanning" name="scanning" ></a>
+## Metadata Scanning
+
+<a id="directed" name="directed" ></a>
 ##Directed Discovery
 
 Directed discovery happens when you use the `depgraph/resolve` endpoint, as opposed to doing discovery as part of a larger operation you're trying to execute. Currently, this is a pretty simplistic operation, only allowing you to resolve the graph for a single GAV using an optional preset filter and a single source location (which can be an Aprox group reference). The basic call looks like this:
@@ -53,7 +100,7 @@ Let's take a look at the individual parts:
 
 - `preset=sob-build`: This specifies the preset filter to use in order to determine which parts of the dependency graph to recurse during discovery. For more information on filtering and available presets, see the [Filtering](Filtering) section.
 
-<a id="inline" name="inline" />
+<a id="inline" name="inline" ></a>
 ## Discovery during Other Operations
 
 Many of the more sophisticated operations available in the depgraph add-on require you to POST a JSON configuration to specify exactly how these complex operations should execute. When this is the case, the `resolve` field should always be available. When set to `true`, graph discovery will take place before the operation can continue.
