@@ -44,7 +44,9 @@ Let's take a look at the individual parts:
 
 - `group:public`: This specifies that the graph should be resolved using the Aprox group `public` as the source from which POMs will be downloaded and parsed.
 
-- `org.foo/bar/1.2.3`: This is the topmost GAV for the graph to be resolved. All dependencies, plugins, extensions, parents, etc. references to other projects recursing out from this GAV will be collected, subject to acceptance by the preset filter.
+- `org.foo/bar/1.2.3`: This is the topmost GAV for the graph to be resolved. 
+
+    All dependencies, plugins, extensions, parents, etc. references to other projects recursing out from this GAV will be collected, subject to acceptance by the preset filter.
 
 - `wsid=1382477279014`: This specifies the workspace within which to store the resolved graph. 
 
