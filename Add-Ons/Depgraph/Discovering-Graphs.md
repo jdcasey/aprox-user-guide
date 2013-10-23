@@ -20,6 +20,12 @@ Graph discovery can happen in two ways:
 
 For more information about these different discovery methods, see their respective sections below.
 
+In addition to simply recursing through Maven POMs and extracting the straightforward expressions of project relationship contained within, the discovery process also makes provision for a couple of post-processing steps to be handled after parsing each POM:
+
+- [Graph patching](#patching) is used to compensate for POM configurations that are expedient for the Maven build, but are misleading when it comes to constructing a graph of project interrelationship.
+
+- [Metadata scanning](#scanning) is used to extract extra information from the parsed POMs and associated it with the project GAVs in the dependency graph. This metadata can then be used for collation of GAVs based on certain metadata characteristics or integration with third-party applications.
+
 <a id="patching" name="patching" ></a>
 ## Graph Patching
 
@@ -68,6 +74,12 @@ To make sure GAVs resolved on-the-fly by the dependency plugin are included in t
 
 <a id="scanning" name="scanning" ></a>
 ## Metadata Scanning
+
+The Maven POM contains a wealth of information that doesn't express relationships to other projects. Some of this information can be very useful in grouping GAVs that aren't directly related in the dependency graph, integrating the depgraph database information with a third party database, or conducting a review of some attribute of a project (project license, for instance).
+
+To collect this information, the depgraph add-on provides a component interface called the `MetadataScanner`, along with a couple of implementations to capture some basic, common POM information. The default implementations extract SCM connection URL and license information and attach them as metadata to each project GAV in the graph.
+
+The collected metadata can then be used in the `depgraph/meta/collate` ([Metadata.collate](Metadata#collate)) REST operation to group GAVs according to their values of certain configured metadata keys.
 
 <a id="directed" name="directed" ></a>
 ##Directed Discovery
