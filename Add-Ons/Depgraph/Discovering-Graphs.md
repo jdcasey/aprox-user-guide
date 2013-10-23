@@ -10,7 +10,7 @@ Graph discovery can happen in two ways:
 - Using the dedicated `depgraph/resolve/*` REST resources
 - Enabling the `resolve` field in a variety of JSON configurations POSTed to different depgrapher REST resources
 
-<div class="start-sidebar"></div>
+<div class="start-sidebar" id="sidebar1"></div>
 ### Reminder
 
 All REST URLs in Aprox are prefixed with the path: `api/1.0/`. Accordingly, if your Aprox instance is deployed to the `/aprox` path on your webserver, the full path to the resolver URL will be: `/aprox/api/1.0/depgraph/resolve/*`.
