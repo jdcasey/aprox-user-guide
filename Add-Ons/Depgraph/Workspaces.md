@@ -5,7 +5,7 @@ TITLE: Workspaces
 
 The depgraph add-on uses an artifact identity and artifact-relationship database API called [Atlas](https://github.com/jdcasey/atlas), which stores dependency graphs in databases that are each associated with a workspace. Separation by workspace allows different dependency graphs to be loaded and unloaded according to the needs of the requests being serviced. This saves memory on the server and improves overall system performance, while at the same time enabling users to explore different scenarios with different configurations in parallel without affecting one another.
 
-<a id="creating"></a>
+<a name="creating" id="creating"></a>
 ##Creating a New Workspace
 
 Currently, before you can start resolving a dependency graph you must first create a workspace. This can be done via a simple POST request to the `ws/new` resource:
@@ -31,7 +31,7 @@ Date: Tue, 22 Oct 2013 20:44:24 GMT
 
 The most important field in the returned JSON is the `id` field. This is your workspace identifier, and it's used throughout the depgrapher REST services.
 
-<a id="deleting"></a>
+<a name="deleting" id="deleting"></a>
 ##Deleting a Workspace
 
 As you explore different configurations for your dependency graphs, occasionally you will want to delete old, obsolete dependency graphs. This is an easy operation; simply issue the following DELETE request (using your own workspace-id for the last part of the path):
@@ -46,7 +46,7 @@ Date: Tue, 22 Oct 2013 20:49:49 GMT
 
 ```
 
-<a id="listing"></a>
+<a name="listing" id="listing"></a>
 ##Listing Available Workspaces
 
 Occasionally, it will also be useful to see what workspaces are available on the system. This amounts to a simple GET request, and returns a JSON object containing the workspaces within an `items` field:
@@ -78,7 +78,7 @@ Date: Tue, 22 Oct 2013 21:12:22 GMT
 
 Again, the `items` field is an array of workspace objects.
 
-<a id="advanced"></a>
+<a name="advanced" id="advanced"></a>
 ## Advanced Topics
 
 ### Constraints
