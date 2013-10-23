@@ -11,7 +11,6 @@ The depgraph add-on uses an artifact identity and artifact-relationship database
 Currently, before you can start resolving a dependency graph you must first create a workspace. This can be done via a simple POST request to the `ws/new` resource:
 
 ```bash
-
 $ curl -i -X POST http://localhost:8080/aprox/api/1.0/depgraph/ws/new
 
 HTTP/1.1 201 Created
