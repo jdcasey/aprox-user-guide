@@ -8,9 +8,9 @@ The depgraph add-on is an integration point for the [Cartographer API][1], which
 ## Contents
 
 * Overview
-    * [Basic Features](#basic-features)
-    * [Rendering Features](#rendering-features)
-    * [Interface Patterns](#interface-patterns)
+    * [Basic Features](Main#basic-features)
+    * [Rendering Features](Main#rendering-features)
+    * [Interface Patterns](Main#interface-patterns)
 * [Workspaces](Workspaces)
     * [Creating](Workspaces#creating)
     * [Deleting](Workspaces#deleting)
