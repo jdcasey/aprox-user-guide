@@ -50,4 +50,7 @@ Let's take a look at the individual parts:
 
 - `wsid=1382477279014`: This specifies the workspace within which to store the resolved graph. 
 
+- `preset=sob-build`: This specifies the preset filter to use in order to determine which parts of the dependency graph to recurse during discovery. For more information on filtering and available presets, see the [Filtering](Filtering) section.
+
+
 
