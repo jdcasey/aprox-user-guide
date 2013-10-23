@@ -17,6 +17,10 @@ The depgraph add-on is an integration point for the [Cartographer API][1], which
     * [Listing](Workspaces#listing)
     * [Advanced Topics](Workspaces#advanced)
 * [Discovering Graphs](Discovering-Graphs)
+    * [Patching](Discovering-Graphs#patching)
+    * [Metadata Scanning](Discovering-Graphs#scanning)
+    * [Directed Discovery](Discovering-Graphs#directed)
+    * [Inline Discovery](Discovering-Graphs#inline)
 * [Rendering](Rendering/Main)
 
 <a id="basic-features"></a>
