@@ -5,11 +5,6 @@ TITLE: Discovering-Graphs
 
 Once you've [created a workspace](Workspaces#creating), you're ready to discover a dependency graph. Discovery currently amounts to parsing a series of POMs recursively, extracting the inter-project relationship information from them, and recursing to discover the projects those relationships target.
 
-Graph discovery can happen in two ways:
-
-- Using the dedicated `depgraph/resolve/*` REST resources
-- Enabling the `resolve` field in a variety of JSON configurations POSTed to different depgrapher REST resources
-
 <div class="start-sidebar" id="sidebar1"></div>
 ### Reminder
 
@@ -17,6 +12,11 @@ All REST URLs in Aprox are prefixed with the path: `api/1.0/`. Accordingly, if y
 
 This is another paragraph for testing styles.
 <div class="end-sidebar"></div>
+
+Graph discovery can happen in two ways:
+
+- Using the dedicated `depgraph/resolve/*` REST resources
+- Enabling the `resolve` field in a variety of JSON configurations POSTed to different depgrapher REST resources
 
 ###Directed Discovery
 
