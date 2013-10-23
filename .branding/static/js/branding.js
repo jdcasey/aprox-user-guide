@@ -8,5 +8,16 @@ $('.branding-header').html(
 //   '<div id="aprox-footer"><div class="license"><a href="/static/gplv3.txt"><img src="/static/images/gplv3.png"/></a><br/>Software</div><div class="license"><a href="/static/cc-by-sa.txt"><img src="/static/images/cc-by-sa.png"/></a><br/>Everything Else</div></div>'
 // );
 
-$('.breadcrumb-sep').text('|');
+$('.breadcrumb-sep').text('>');
 
+$('#page-content').on( 'contentUpdate', function(){
+  var seen = [];
+  $('.start-sidebar').each(function(){
+    var id = $(this).attr('id');
+    if ( seen.indexOf(id) < 0 ) {
+      seen.push(id);
+
+      $(this).nextUntil('.end-sidebar').wrapAll('<div class="sidebar" id="wrapped-' + id + '"></div>');
+    }
+  });
+});
