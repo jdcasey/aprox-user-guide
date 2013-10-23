@@ -14,11 +14,13 @@
 .sidebar {
   font-size: 10pt;
   max-width: 400px;
-  margin-left: 20px;
   float: right;
   background-color: #ffd;
   padding: 0px;
   padding-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
   border: 1px solid #888;
 }
 
