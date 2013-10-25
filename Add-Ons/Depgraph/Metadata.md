@@ -30,7 +30,7 @@ For example, if you want to know what licenses are in use in the dependencies yo
 
 1. Construct the JSON configuration for this collation:
 
-*collate.json*
+  *collate.json*
 ----
 ```javascript
 {
