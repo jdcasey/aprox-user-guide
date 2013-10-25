@@ -17,7 +17,6 @@ $('#page-content').on( 'contentUpdate', function(){
     if ( seen.indexOf(id) < 0 ) {
       seen.push(id);
 
-      alert( "Processing: " + id + " with content:\n\n" + $(this).html());
       $(this).nextUntil('.end-sidebar').wrapAll('<div class="sidebar" id="wrapped-' + id + '"></div>');
     }
   });
