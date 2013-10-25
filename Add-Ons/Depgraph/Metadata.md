@@ -31,6 +31,7 @@ For example, if you want to know what licenses are in use in the dependencies yo
 1. Construct the JSON configuration for this collation:
 
 ```javascript
+// collate.json
 {
   "resolve": true,
   "source": "repository:central",
@@ -51,8 +52,7 @@ For example, if you want to know what licenses are in use in the dependencies yo
     "dist-pom"
   ]
 }
-```<span style="font-size: small;">*collate.json*</span>
-
+```
 2. POST it to the `depgraph/meta/collate` endpoint:
 
 ```bash
