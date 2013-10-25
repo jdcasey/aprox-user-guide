@@ -18,7 +18,7 @@ These include:
 - Batch-updating a mapping of metadata key-value pairs, each associated with a GAV
 
 
-##Collating Sets of GAVs {#collating}
+##Collating Sets of GAVs {#collate}
 
 One of the most important operations we can perform with metadata attached to GAVs in a dependency graph is to group them according to the value of one or more metadata keys. This allows us to find out which GAVs have some attribute in common. 
 
