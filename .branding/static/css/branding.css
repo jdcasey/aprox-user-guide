@@ -1,3 +1,7 @@
+.start-sidebar, .end-sidebar{
+  display: none;
+}
+
 .sidebar h2,
 .sidebar h3,
 .sidebar h4 {
@@ -22,6 +26,12 @@
   margin-left: 20px;
   margin-bottom: 20px;
   border: 1px solid #888;
+}
+
+#html-content {
+  width: 1400px;
+  height: 800px;
+  font: courier;
 }
 
 #aprox-title {

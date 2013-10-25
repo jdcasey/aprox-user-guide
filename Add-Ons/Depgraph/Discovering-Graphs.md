@@ -5,13 +5,13 @@ TITLE: Discovering-Graphs
 
 Once you've [created a workspace](Workspaces#creating), you're ready to discover a dependency graph. Discovery currently amounts to parsing a series of POMs recursively, extracting the inter-project relationship information from them, and recursing to discover the projects those relationships target.
 
-<div class="start-sidebar" id="sidebar1"/>
+<div class="start-sidebar" id="sidebar1"></div>
 ### Reminder
 
 All REST URLs in Aprox are prefixed with the path: `api/1.0/`. Accordingly, if your Aprox instance is deployed to the `/aprox` path on your webserver, the full path to the resolver URL will be: `/aprox/api/1.0/depgraph/resolve/*`.
 
 This is another paragraph for testing styles.
-<div class="end-sidebar"/>
+<div class="end-sidebar"></div>
 
 Graph discovery can happen in two ways:
 
@@ -91,7 +91,7 @@ Directed discovery happens when you use the `depgraph/resolve` endpoint, as oppo
 http://localhost:8080/aprox/api/1.0/depgraph/resolve/group:public/org.foo/bar/1.2.3?wsid=1382477279014&preset=sob-build
 ```
 
-<div class="start-sidebar" id="sidebar2"/>
+<div class="start-sidebar" id="sidebar2">Marker</div>
 ###Note
 
 Currently, the `wsid=xxxxxxxxx` query parameter is a common method of passing in the workspace used to store/query for graph information. **In most cases, the workspace is a required parameter.** 
@@ -99,7 +99,7 @@ Currently, the `wsid=xxxxxxxxx` query parameter is a common method of passing in
 This violates the principle of *required parameters in the path, optional parameters in the query* specified [at the beginning of this section](Main#interface-patterns), and is a holdover from an older incarnation of the dependency graph, in which all relationships were stored in a global database, and workspaces merely specified a view on that database.
 
 **This means of specifying the workspace will likely change.**
-<div class="end-sidebar"/>
+<div class="end-sidebar">Marker</div>
 
 Let's take a look at the individual parts:
 
