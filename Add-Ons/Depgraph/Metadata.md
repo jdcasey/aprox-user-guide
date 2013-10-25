@@ -31,7 +31,6 @@ For example, if you want to know what licenses are in use in the dependencies yo
 First, construct the JSON configuration for this collation:
 
 ```javascript
-// collate.json
 {
   "resolve": true,
   "source": "repository:central",
