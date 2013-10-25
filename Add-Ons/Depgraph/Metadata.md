@@ -30,7 +30,7 @@ These include:
 
 One of the most important operations we can perform with metadata attached to GAVs in a dependency graph is to group them according to the value of one or more metadata keys. This allows us to find out which GAVs have some attribute in common. 
 
-This feature can really come to life when combined with the [metadata scanning][1] that takes place during graph discovery, where both project licensing and SCM information is captured by default. These common values provide a handy way to perform license reviews (from the license metadata), or to get a rough idea about what artifacts were produced by a common Maven build (using the scm metadata).
+This feature can really come to life when combined with the [metadata scanning](Discovering-Graphs#scanning) that takes place during graph discovery, where both project licensing and SCM information is captured by default. These common values provide a handy way to perform license reviews (from the license metadata), or to get a rough idea about what artifacts were produced by a common Maven build (using the scm metadata).
 
 ### License Reviews
 
@@ -75,5 +75,3 @@ $ curl -i \
 
 ```
 
-
-  [1]: http://Discovering-Graphs#scanning
