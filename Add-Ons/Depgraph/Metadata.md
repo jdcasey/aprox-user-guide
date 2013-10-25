@@ -5,6 +5,14 @@ TITLE: Metadata
 
 The metadata REST resource provides endpoints for querying and updating the metadata attached to GAVs in the dependency graph. The base resource path for these endpoints is `depgraph/meta/`.
 
+<div class="start-sidebar" id="sidebar1"></div>
+### Reminder
+
+All REST URLs in Aprox are prefixed with the path: `api/1.0/`. Accordingly, if your Aprox instance is deployed to the `/aprox` path on your webserver, the full path to the resolver URL will be: `/aprox/api/1.0/depgraph/resolve/*`.
+
+This is another paragraph for testing styles.
+<div class="end-sidebar"></div>
+
 These include:
 
 - Assembling a collated a set of GAVs according to their values of one or more metadata keys
